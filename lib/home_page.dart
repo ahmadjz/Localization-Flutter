@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localization_json/app_localization.dart';
+import 'package:localization_json/settings_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,7 +8,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("home".tr(context)),
+        actions: [
+          IconButton(
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SettingsPage(),
+                  )),
+              icon: const Icon(Icons.settings))
+        ],
+      ),
       drawer: const Drawer(),
       body: Center(
           child: Padding(
